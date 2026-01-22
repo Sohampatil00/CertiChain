@@ -1,3 +1,4 @@
+// src/components/student/request-form.tsx
 "use client";
 
 import { useActionState } from "react";
@@ -11,6 +12,7 @@ import { Label } from "../ui/label";
 import { useEffect, useRef } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { UploadCloud } from "lucide-react";
+import { useUser } from "@/firebase";
 
 
 function SubmitButton() {
@@ -24,6 +26,7 @@ function SubmitButton() {
 
 
 export default function RequestForm() {
+    const { user } = useUser();
     const initialState = { message: null, success: false };
     const [state, formAction] = useActionState(createCredentialRequest, initialState);
     const formRef = useRef<HTMLFormElement>(null);
@@ -50,6 +53,8 @@ export default function RequestForm() {
             </CardHeader>
             <form action={formAction} ref={formRef}>
                 <CardContent className="space-y-4">
+                     <input type="hidden" name="studentId" value={user?.uid} />
+                     <input type="hidden" name="studentName" value={user?.displayName || 'Anonymous'} />
                     <div className="space-y-2">
                         <Label htmlFor="credentialType">Credential Type</Label>
                          <Select name="credentialType" required>

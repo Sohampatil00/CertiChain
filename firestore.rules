@@ -1,0 +1,60 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isAuth() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuth() && request.auth.uid == userId;
+    }
+
+    function getRole() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role;
+    }
+
+    function isAdmin() {
+      return isAuth() && getRole() == 'admin';
+    }
+
+    function isStudent() {
+      return isAuth() && getRole() == 'student';
+    }
+    
+    // User Profiles
+    match /users/{userId} {
+      // Anyone can read a user's public profile
+      allow get: if true;
+      // Only the owner can create or update their own profile
+      allow write: if isOwner(userId);
+    }
+
+    // Credential Requests
+    match /credentialRequests/{requestId} {
+      // Admins can read any request
+      // Students can only read their own requests
+      allow get, list: if isAdmin() || (isStudent() && resource.data.studentId == request.auth.uid);
+      // Students can create requests for themselves
+      allow create: if isStudent() && request.resource.data.studentId == request.auth.uid;
+      // Admins can update the status of any request
+      allow update: if isAdmin();
+      // No one can delete requests for now
+      allow delete: if false;
+    }
+
+    // Issued Credentials
+    match /issuedCredentials/{credentialId} {
+      // Anyone can read any issued credential for verification purposes
+      allow get, list: if true;
+      // Credentials can only be created by admins (implicitly via updateRequestStatus)
+      // or by a trusted server process. Direct creation is disabled.
+      allow create: if isAdmin();
+      // Admins can revoke (update) a credential
+      allow update: if isAdmin();
+       // No one can delete issued credentials to maintain integrity
+      allow delete: if false;
+    }
+  }
+}

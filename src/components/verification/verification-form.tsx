@@ -1,3 +1,4 @@
+// src/components/verification/verification-form.tsx
 "use client";
 
 import { useActionState } from "react";
@@ -49,7 +50,7 @@ export default function VerificationForm() {
                 <Input
                 id="credentialId"
                 name="credentialId"
-                placeholder="0xabc123 or cred-167..."
+                placeholder="cred-..."
                 required
                 className="flex-grow"
                 />
@@ -69,11 +70,15 @@ export default function VerificationForm() {
             </div>
         </div>
         {state.credential && (
-            <div className="mt-4 pt-4 border-t border-current/30 text-sm space-y-1">
+            <div className="mt-4 pt-4 border-t border-current/30 text-sm space-y-2">
                 <p><strong>Student:</strong> {state.credential.studentName}</p>
                 <p><strong>Credential:</strong> {state.credential.credentialType}</p>
                 <p><strong>Issuer:</strong> {state.credential.issuer}</p>
                 <p><strong>Issuance Date:</strong> {state.credential.issuanceDate}</p>
+                <div className="space-y-1 pt-2">
+                    <strong>Blockchain Transaction ID:</strong>
+                    <p className="text-xs bg-muted/50 p-2 rounded-md break-all font-mono ">{state.credential.transactionId}</p>
+                </div>
             </div>
         )}
       </Alert>

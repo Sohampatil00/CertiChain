@@ -12,7 +12,7 @@ export default function LoginPage() {
                 <Shield className="w-12 h-12 text-primary"/>
             </div>
             <CardTitle className="text-3xl font-headline">Welcome to CertiChain</CardTitle>
-            <CardDescription>Select your role to access the portal</CardDescription>
+            <CardDescription>Sign in to access the portal</CardDescription>
           </CardHeader>
           <CardContent>
             <LoginForm />

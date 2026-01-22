@@ -1,8 +1,15 @@
+'use client';
 import CredentialsList from "@/components/student/credentials-list";
 import RequestForm from "@/components/student/request-form";
-import { Separator } from "@/components/ui/separator";
+import { useUser } from "@/firebase";
 
 export default function StudentDashboardPage() {
+  const { user } = useUser();
+
+  if (!user) {
+    return null; // Or a loading state
+  }
+
   return (
     <div className="space-y-8">
       <div>
@@ -15,7 +22,7 @@ export default function StudentDashboardPage() {
             <RequestForm />
         </div>
         <div className="lg:col-span-2">
-            <CredentialsList />
+            <CredentialsList userId={user.uid} />
         </div>
       </div>
     </div>

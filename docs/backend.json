@@ -1,0 +1,169 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "Represents a user in the system.",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "The user's unique ID from Firebase Auth."
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "The user's email address."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The user's display name."
+        },
+        "photoURL": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL of the user's profile picture."
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "student",
+            "admin",
+            "verifier"
+          ],
+          "description": "The user's role in the application."
+        }
+      },
+      "required": [
+        "uid",
+        "email",
+        "role"
+      ]
+    },
+    "CredentialRequest": {
+      "title": "Credential Request",
+      "description": "A request for a new credential submitted by a student.",
+      "type": "object",
+      "properties": {
+        "studentId": {
+          "type": "string",
+          "description": "The UID of the student making the request."
+        },
+        "studentName": {
+          "type": "string",
+          "description": "The name of the student at the time of the request."
+        },
+        "credentialType": {
+          "type": "string",
+          "description": "The type of credential being requested (e.g., 'Diploma')."
+        },
+        "requestDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The ISO 8601 timestamp of when the request was made."
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "approved",
+            "rejected"
+          ],
+          "description": "The current status of the request."
+        },
+        "documentUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to the supporting document in Cloud Storage."
+        }
+      },
+      "required": [
+        "studentId",
+        "studentName",
+        "credentialType",
+        "requestDate",
+        "status"
+      ]
+    },
+    "IssuedCredential": {
+      "title": "Issued Credential",
+      "description": "A credential that has been officially issued and recorded.",
+      "type": "object",
+      "properties": {
+        "studentId": {
+          "type": "string",
+          "description": "The UID of the student to whom the credential belongs."
+        },
+        "studentName": {
+          "type": "string",
+          "description": "The name of the student."
+        },
+        "credentialType": {
+          "type": "string",
+          "description": "The type of credential issued."
+        },
+        "issuanceDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The date the credential was issued (YYYY-MM-DD)."
+        },
+        "issuer": {
+          "type": "string",
+          "description": "The name of the issuing institution."
+        },
+        "transactionId": {
+          "type": "string",
+          "description": "The (simulated) blockchain transaction ID for verification."
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "valid",
+            "revoked"
+          ],
+          "description": "The current status of the credential."
+        },
+        "revocationDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The date the credential was revoked."
+        },
+        "revocationReason": {
+          "type": "string",
+          "description": "The reason for revocation."
+        }
+      },
+      "required": [
+        "studentId",
+        "credentialType",
+        "issuanceDate",
+        "issuer",
+        "status"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "google.com"
+    ]
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": {
+        "$ref": "#/entities/UserProfile"
+      },
+      "description": "Stores public profiles for all users, including their role."
+    },
+    "/credentialRequests/{requestId}": {
+      "schema": {
+        "$ref": "#/entities/CredentialRequest"
+      },
+      "description": "Collection of all credential requests from students."
+    },
+    "/issuedCredentials/{credentialId}": {
+      "schema": {
+        "$ref": "#/entities/IssuedCredential"
+      },
+      "description": "Collection of all credentials that have been issued and are verifiable."
+    }
+  }
+}
