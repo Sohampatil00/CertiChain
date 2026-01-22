@@ -129,50 +129,50 @@ export default function Home() {
                   CertiChain is built on a foundation of cutting-edge technology to ensure data integrity and user empowerment.
                 </p>
             </div>
-            <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 md:grid-cols-2 lg:gap-16">
-              <div className="grid gap-4">
-                <div className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                    <Lock className="h-6 w-6"/>
-                  </div>
+            <div className="mx-auto grid max-w-5xl items-start gap-12 sm:grid-cols-2 lg:gap-16">
+              <div className="grid gap-4 text-center">
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <Lock className="h-8 w-8" />
+                </div>
+                <div className="grid gap-1">
                   <h3 className="text-xl font-bold">Immutable & Decentralized</h3>
+                  <p className="text-muted-foreground">
+                    Leveraging blockchain, all credentials are tamper-proof and permanently recorded, eliminating the possibility of forgery.
+                  </p>
                 </div>
-                <p className="text-muted-foreground">
-                  Leveraging blockchain, all credentials are tamper-proof and permanently recorded, eliminating the possibility of forgery.
-                </p>
               </div>
-              <div className="grid gap-4">
-                <div className="flex items-center gap-4">
-                   <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                    <GraduationCap className="h-6 w-6"/>
-                  </div>
+              <div className="grid gap-4 text-center">
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <GraduationCap className="h-8 w-8" />
+                </div>
+                <div className="grid gap-1">
                   <h3 className="text-xl font-bold">Student-Centric Control</h3>
+                  <p className="text-muted-foreground">
+                    Empower students with full ownership of their academic achievements, allowing them to share their credentials securely and on their own terms.
+                  </p>
                 </div>
-                <p className="text-muted-foreground">
-                  Empower students with full ownership of their academic achievements, allowing them to share their credentials securely and on their own terms.
-                </p>
               </div>
-              <div className="grid gap-4">
-                <div className="flex items-center gap-4">
-                   <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                    <Globe className="h-6 w-6"/>
-                  </div>
+              <div className="grid gap-4 text-center">
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <Globe className="h-8 w-8" />
+                </div>
+                <div className="grid gap-1">
                   <h3 className="text-xl font-bold">Instant Global Verification</h3>
+                  <p className="text-muted-foreground">
+                    Third-parties can confirm credential authenticity in seconds from anywhere in the world, dramatically reducing administrative friction.
+                  </p>
                 </div>
-                <p className="text-muted-foreground">
-                  Third-parties can confirm credential authenticity in seconds from anywhere in the world, dramatically reducing administrative friction.
-                </p>
               </div>
-              <div className="grid gap-4">
-                <div className="flex items-center gap-4">
-                   <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                    <Bot className="h-6 w-6"/>
-                  </div>
-                  <h3 className="text-xl font-bold">AI-Powered Integrity</h3>
+              <div className="grid gap-4 text-center">
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <Bot className="h-8 w-8" />
                 </div>
-                <p className="text-muted-foreground">
-                  Our system uses advanced artificial intelligence to proactively flag potentially fraudulent documents during the submission process.
-                </p>
+                <div className="grid gap-1">
+                  <h3 className="text-xl font-bold">AI-Powered Integrity</h3>
+                  <p className="text-muted-foreground">
+                    Our system uses advanced artificial intelligence to proactively flag potentially fraudulent documents during the submission process.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
