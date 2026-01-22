@@ -1,6 +1,7 @@
 "use client";
 
-import { useFormState, useFormStatus } from "react-dom";
+import { useActionState } from "react";
+import { useFormStatus } from "react-dom";
 import { analyzeDocument } from "@/lib/actions";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -20,7 +21,7 @@ function SubmitButton() {
 
 export default function FraudDetection({ documentDescription }: { documentDescription: string }) {
   const initialState = { isFraudulent: null, reason: null, error: null };
-  const [state, formAction] = useFormState(analyzeDocument, initialState);
+  const [state, formAction] = useActionState(analyzeDocument, initialState);
 
   return (
     <Card className="bg-gradient-to-br from-primary/5 to-transparent">
