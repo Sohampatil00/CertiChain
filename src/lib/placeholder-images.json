@@ -1,3 +1,40 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-bg.jpg",
+      "description": "Abstract background of blockchain network nodes",
+      "imageUrl": "https://images.unsplash.com/photo-1631864032970-68d79f6b7158?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxibG9ja2NoYWluJTIwbmV0d29ya3xlbnwwfHx8fDE3NjkwMDE1ODl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "blockchain network"
+    },
+    {
+      "id": "feature1.jpg",
+      "description": "Digital security lock interface",
+      "imageUrl": "https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxkaWdpdGFsJTIwc2VjdXJpdHl8ZW58MHx8fHwxNzY5MDA0MTQ2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "digital security"
+    },
+    {
+      "id": "feature2.jpg",
+      "description": "Student in graduation cap and gown",
+      "imageUrl": "https://images.unsplash.com/photo-1719408938150-f1a14ca4ca55?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzdHVkZW50JTIwZ3JhZHVhdGlvbnxlbnwwfHx8fDE3NjkwMzU2MTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "student graduation"
+    },
+    {
+      "id": "feature3.jpg",
+      "description": "Magnifying glass over data for verification",
+      "imageUrl": "https://images.unsplash.com/photo-1763718528755-4bca23f82ac3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkYXRhJTIwdmVyaWZpY2F0aW9ufGVufDB8fHx8MTc2OTA3Mjc4NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "data verification"
+    },
+    {
+      "id": "doc.jpg",
+      "description": "Placeholder for an academic certificate document",
+      "imageUrl": "https://images.unsplash.com/photo-1559588501-59a118c47e59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkb2N1bWVudCUyMGNlcnRpZmljYXRlfGVufDB8fHx8MTc2OTA3Mjc4NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "document certificate"
+    },
+    {
+      "id": "qr-code.png",
+      "description": "Placeholder QR code for credential verification",
+      "imageUrl": "https://images.unsplash.com/photo-1662383729882-e03ce8e00887?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxxciUyMGNvZGV8ZW58MHx8fHwxNzY4OTgyNzM2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "qr code"
+    }
+  ]
 }
